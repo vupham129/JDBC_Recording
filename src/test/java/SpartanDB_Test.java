@@ -21,8 +21,11 @@ public class SpartanDB_Test {
         ResultSet rs = stmt.executeQuery("SELECT * FROM SPARTANS");
 
         // This table has SPARTAN_ID, NAME, GENDER CREATED_AT UPDATED_AD
-        rs.next() ;
-        System.out.println(rs.getString(1) + " | " + rs.getString(2) + " | " + rs.getString(3) + " | " + rs.getString(4) + " | " + rs.getString(5));
+        while(rs.next()) {
+            System.out.println(rs.getString(1) + " | " + rs.getString(2) +
+                    " | " + rs.getString(3) + " | " + rs.getString(4) + " | " + rs.getString(5));
+
+        }
 
 
     }
