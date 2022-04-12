@@ -25,6 +25,11 @@ public class FlexibleNavigation {
          * beforeFirst() - move to before first location from anywhere
          * afterLast() - move to after last location from anywhere
          * absolute(8) - move to any row by using row number , for example 8 in this case
+         * relative(3) - move 3 row down from current row, -3 will move 3 row
+         * isFirst()
+         * isBeforeFirst()
+         * isLast()
+         * isAfterLast()
          */
         System.out.println("next method:");
         rs.next() ; // row1
@@ -37,9 +42,19 @@ public class FlexibleNavigation {
         System.out.println( rs.getString(1) + " | " + rs.getString(2));
 
         System.out.println("absolute(row number) method");
-        rs.absolute(3);
+        rs.absolute(3); // row 3
         System.out.println( rs.getString(1) + " | " + rs.getString(2));
 
+        System.out.println("previous method");
+        rs.previous(); // row 2
+        System.out.println( rs.getString(1) + " | " + rs.getString(2));
 
+        rs.beforeFirst(); // before first location
+       // System.out.println( rs.getString(1) + " | " + rs.getString(2)); //
+        rs.next(); // row1
+        rs.afterLast(); // now we are at after last location, nothing is done
+        rs.previous();// last row, row 4
+
+        System.out.println( rs.getString(1) + " | " + rs.getString(2));
     }
 }
